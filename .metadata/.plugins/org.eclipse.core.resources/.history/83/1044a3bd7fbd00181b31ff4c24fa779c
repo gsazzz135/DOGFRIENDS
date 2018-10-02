@@ -1,0 +1,6 @@
+package com.gosang.swp.domain;
+
+public class ProductUser {
+	private int uid;
+	private String serialNumber;
+}

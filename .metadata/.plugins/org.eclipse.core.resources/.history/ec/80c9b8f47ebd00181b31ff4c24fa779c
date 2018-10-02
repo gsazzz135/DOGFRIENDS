@@ -1,0 +1,5 @@
+package com.gosang.swp.domain;
+
+public class User {
+
+}

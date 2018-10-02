@@ -1,0 +1,13 @@
+package com.gosang.swp.domain;
+
+import lombok.Builder;
+import lombok.Data;
+
+public class Product {
+@Data
+@Builder
+	private Integer uid;
+	private String email;
+	private String password;
+	private String serialNumber;
+}
