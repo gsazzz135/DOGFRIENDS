@@ -1,8 +1,6 @@
 INDEX VERSION 1.4+D:\DOGFRIENDS\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3327338242.index
 3465876463.index
-38751890.index
-732852029.index
 561014178.index
-2853134334.index
 397928289.index
+732852029.index
+38751890.index
