@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.dogfriend.domain.MessageVO;
-import com.dogfriend.service.MessageService;
+import com.dogfriend.swp.domain.MessageVO;
+import com.dogfriend.swp.service.MessageService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })

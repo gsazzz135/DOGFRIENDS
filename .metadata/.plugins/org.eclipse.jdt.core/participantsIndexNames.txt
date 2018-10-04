@@ -3,7 +3,3 @@ D:\DOGFRIENDS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\646778075.in
 \swpdog\src\main\java
 D:\DOGFRIENDS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1701631312.index
 \swpdog\src\main\java
-D:\DOGFRIENDS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1551612395.index
-\swp\src\main\java
-D:\DOGFRIENDS\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3963012120.index
-\swp\src\main\java

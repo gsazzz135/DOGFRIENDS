@@ -38,7 +38,7 @@
 		values(#{title}, #{content}, #{writer})
 	</insert>
 
-	<select id="read" resultType="com.gosang.board.domain.Board">
+	<select id="read" resultType="com.dogfriend.swp.domain.Board">
 		select bno, title, content, writer, regdate, viewcnt
 		from Board
 		where bno = #{bno}
@@ -67,7 +67,7 @@
 		where bno=#{bno}
 	</delete>
 
-	<select id="listAll" resultType="com.gosang.board.domain.Board">
+	<select id="listAll" resultType="com.dogfriend.swp.domain.Board">
 		select bno, title, content, writer, regdate, viewcnt 
 		from Board 
 		where bno > 0

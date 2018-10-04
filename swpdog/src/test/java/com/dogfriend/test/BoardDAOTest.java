@@ -17,9 +17,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.dogfriend.domain.Board;
-import com.dogfriend.domain.Criteria;
-import com.dogfriend.persistence.BoardDAO;
+import com.dogfriend.swp.domain.Board;
+import com.dogfriend.swp.domain.Criteria;
+import com.dogfriend.swp.persistence.BoardDAO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/root-context.xml" })

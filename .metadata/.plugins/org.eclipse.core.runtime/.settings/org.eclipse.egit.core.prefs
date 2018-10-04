@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\DOGFRIENDS\\swp\\.git;D\:\\DOGFRIENDS\\.git;
-GitRepositoriesView.GitDirectories.relative=swp\\.git;.git;
+GitRepositoriesView.GitDirectories=D\:\\DOGFRIENDS\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1

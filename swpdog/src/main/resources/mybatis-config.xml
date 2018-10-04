@@ -6,7 +6,7 @@
  <configuration>
  
 	 <typeAliases>
-	 	<package name="com.gosang.board.domain"/>
+	 	<package name="com.dogfriend.swp.domain"/>
 	 </typeAliases>
 	 
  </configuration> 
