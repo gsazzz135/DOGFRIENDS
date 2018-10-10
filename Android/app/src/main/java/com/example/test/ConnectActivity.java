@@ -1,30 +1,32 @@
 package com.example.test;
 
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
+        import java.io.InputStream;
+        import java.io.OutputStream;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.Set;
+        import java.util.UUID;
 
-import android.app.AlertDialog;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
+        import android.app.AlertDialog;
+        import android.bluetooth.BluetoothAdapter;
+        import android.bluetooth.BluetoothDevice;
+        import android.bluetooth.BluetoothSocket;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.os.Handler;
 
-import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+        import android.support.v7.app.AppCompatActivity;
+        import android.util.Log;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.ListView;
+        import android.widget.Toast;
 
-import com.example.test.R.*;
+        import com.example.test.R.*;
 
 public class ConnectActivity extends AppCompatActivity implements View.OnClickListener {
     static final int REQUEST_ENABLE_BT = 10;
@@ -41,6 +43,7 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
     String mStrDelimiter = "\n";
     char mCharDelimiter =  '\n';
 
+    List<String> serchListItems;
 
     Thread mWorkerThread = null;
     byte[] readBuffer;
@@ -48,7 +51,6 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
 
     EditText mEditReceive, mEditSend;
     Button mButtonSend;
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -103,8 +105,15 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
         for(BluetoothDevice device : mDevices) {
             listItems.add(device.getName());
         }
+
         listItems.add("취소");  // 취소 항목 추가.
 
+        // GGG : 블루투스 페어링 버튼 추가
+        builder.setNegativeButton("dogfriend가 보이지 않을 경우 click", new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int whichButton){
+                bluetoothSherchView();
+            }
+        });
 
         final CharSequence[] items = listItems.toArray(new CharSequence[listItems.size()]);
         listItems.toArray(new CharSequence[listItems.size()]);
@@ -125,12 +134,34 @@ public class ConnectActivity extends AppCompatActivity implements View.OnClickLi
 
         });
 
-//        builder.setCancelable(false);  // 뒤로 가기 버튼 사용 금지.
+        builder.setCancelable(false);  // 뒤로 가기 버튼 사용 금지.
         AlertDialog alert = builder.create();
         alert.show();
     }
 
+    void bluetoothSherchView(){
 
+        AlertDialog.Builder oDialog = new AlertDialog.Builder(this, android.R.style.Theme_DeviceDefault_Light_Dialog);
+
+        oDialog.setMessage("DOGFRIENDS의 전원이 켜져 있나 확인해주세요. 켜져 있다면 블루투스 페어링이 되어있는지 확인해 주세요.");
+        oDialog.setTitle("DOGFRIENDS가 페어링 되어 있지 않습다.");
+        oDialog.setPositiveButton("아니오", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.i("Dialog", "취소");
+                Toast.makeText(getApplicationContext(), "취소", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+        oDialog.setNeutralButton("블루투스 검색", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intentSearch = new Intent(ConnectActivity.this, SearchBTActivity.class);
+                startActivity(intentSearch);
+            }
+        });
+        oDialog.setCancelable(false);
+        oDialog.show();// 백버튼으로 팝업창이 닫히지 않도록 한다.
+    }
 
 
     //----------------------------- 데이터 송수신 ----------------------------------
